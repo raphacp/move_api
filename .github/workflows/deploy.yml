@@ -17,7 +17,7 @@ permissions:
 env:
   MGC_REGION: br-se1
   # TODO: Alunos devem garantir que o nome do registry bate com o criado no painel da MGC
-  REGISTRY_NAME: cr_git_hub
+  REGISTRY_NAME: cr_git_hub1
   IMAGE_NAME: move-tech-orders-api
   # Como os arquivos Dockerfile/manifestos estão na raiz do repo inicial:
   BUILD_CONTEXT: .
