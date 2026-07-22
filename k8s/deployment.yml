@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: move-tech-orders-api
+  namespace: move-tech-api
+  labels:
+    app: move-tech-orders-api
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: move-tech-orders-api
+
+  template:
+    metadata:
+      labels:
+        app: move-tech-orders-api
+
+    spec:
+      imagePullSecrets:
+        - name: mgc-registry-secret
+
+      containers:
+        - name: move-tech-orders-api
+          image: container-registry.br-se1.magalu.cloud/cr_git_hub1/move-tech-orders-api:latest
+          imagePullPolicy: Always
+
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

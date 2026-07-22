@@ -7,7 +7,7 @@ from scalar_fastapi import get_scalar_api_reference
 
 app = FastAPI(
     title="API de Pedidos",
-    description="Projeto base do curso Move Tech — Magalu × Prósper Digital Skills",
+    description="Projeto base do curso do Rapha na Move Tech — Magalu × Prósper Digital Skills",
     version="1.0.0",
     docs_url=None,
     redoc_url=None,
