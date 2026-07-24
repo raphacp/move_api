@@ -5,7 +5,7 @@ on:
     branches:
       # Branch inicial para validação dos alunos no Lab H3.
       - feature/container_registry
-      # Descomente a linha abaixo para produção/entrega final se necessário:
+      # Descomente a linha abaixo para produção/entrega final se necessário :
       - main
   pull_request:
     branches:
